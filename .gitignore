@@ -59,3 +59,7 @@ typings/
 
 # next.js build output
 .next
+
+# test data
+test/output256x256.png
+test/output512x512.png
