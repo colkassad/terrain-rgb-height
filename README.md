@@ -1,5 +1,5 @@
 # terrain-rgb-converter
-Converts Mapbox's Terrain-RGB PNG tiles to 16 bit greyscale PNGs
+Converts Mapbox's [Terrain-RGB](https://docs.mapbox.com/help/troubleshooting/access-elevation-data/) PNG tiles to 16 bit greyscale PNGs
 
 # Installation
 
