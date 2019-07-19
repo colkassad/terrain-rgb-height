@@ -13,7 +13,9 @@
     "type": "git",
     "url": "git+https://github.com/colkassad/terrain-rgb-converter.git"
   },
-  "keywords": ["terrain-rgb"],
+  "keywords": [
+    "terrain-rgb"
+  ],
   "author": "Shane Brennan",
   "license": "MIT",
   "bugs": {
@@ -21,7 +23,9 @@
   },
   "homepage": "https://github.com/colkassad/terrain-rgb-converter#readme",
   "dependencies": {
-    "pngjs": "^3.4.0"
+    "dotenv": "^8.0.0",
+    "pngjs": "^3.4.0",
+    "request": "^2.88.0"
   },
   "devDependencies": {
     "chai": "^4.2.0",
