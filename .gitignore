@@ -61,4 +61,6 @@ typings/
 .next
 
 # test data
-test/*.png
+test/output256x256.png
+test/output512x512.png
+test/retrievedTile.png
