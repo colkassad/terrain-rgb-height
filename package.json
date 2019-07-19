@@ -1,6 +1,6 @@
 {
   "name": "terrain-rgb-converter",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Converts Mapbox's Terrain-RGB PNG tiles to 16 bit greyscale PNGs",
   "main": "./lib/TerrainRgbConverter.js",
   "directories": {
