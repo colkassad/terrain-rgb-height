@@ -2,10 +2,6 @@ var chai = require('chai');
 var converter = require('../../terrain-rgb-converter');
 var fs = require('fs');
 
-if (process.env.NODE_ENV !== 'production') {
-    require('dotenv').config();
-}
-
 describe("Terrain-RGB to 16 bit greyscale conversion", function() {
     it("Should convert a 256x256 Terrain-RGB PNG to 16 bit", function(done) {
         let inputPath = "./test/input256x256.png";
@@ -13,9 +9,13 @@ describe("Terrain-RGB to 16 bit greyscale conversion", function() {
         if (fs.existsSync(outputPath)) {
             fs.unlinkSync(outputPath);
         }
-        converter.convert(inputPath, outputPath, function() {
+        var options = { 
+            'inputFilePath' : inputPath, 
+            'outputFilePath' : outputPath 
+        };
+        converter.convert(options, function() {
             var stats = fs.statSync(outputPath);
-            chai.expect(stats.size).to.equal(28165);
+            chai.expect(stats.size).to.equal(28007);
             done();
         });
     });
@@ -23,12 +23,13 @@ describe("Terrain-RGB to 16 bit greyscale conversion", function() {
     it("Should convert a 512x512 Terrain-RGB PNG to 16 bit", function(done) {
         let inputPath = "./test/input512x512.png";
         let outputPath = "./test/output512x512.png";
+        var options = { inputFilePath : inputPath, outputFilePath : outputPath };
         if (fs.existsSync(outputPath)) {
             fs.unlinkSync(outputPath);
         }
-        converter.convert(inputPath, outputPath, function() {
+        converter.convert(options, function() {
             var stats = fs.statSync(outputPath);
-            chai.expect(stats.size).to.equal(27979);
+            chai.expect(stats.size).to.equal(26090);
             done();
         });
     });
@@ -48,6 +49,20 @@ describe("Terrain-RGB to 16 bit greyscale conversion", function() {
         converter.getTile(url, outputPath, function() {
             var stats = fs.statSync(outputPath);
             chai.expect(fs.existsSync(outputPath));
+            done();
+        });
+    });
+
+    it("Should scale pixel values properly", function(done) {
+        let inputPath = "./test/input512x512.png";
+        let outputPathScaled = "./test/outputScaled512x512.png";
+        if (fs.existsSync(outputPathScaled)) {
+            fs.unlinkSync(outputPathScaled);
+        }
+        var options = { inputFilePath: inputPath, outputFilePath : outputPathScaled, scaleValues: true };
+        converter.convert(options, function() {
+            var fileStats = fs.statSync(outputPathScaled);
+            chai.expect(fileStats.size).to.equal(86035);
             done();
         });
     });
