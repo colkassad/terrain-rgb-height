@@ -10,7 +10,12 @@ Converts Mapbox's [Terrain-RGB](https://docs.mapbox.com/help/troubleshooting/acc
 ```javascript
 var converter = require('terrain-rgb-converter');
 
-converter.convert('/path/to/my/terrain-rgb-tile.png', '/path/to/output/16bit.png', function() {
+var options = {
+  inputFilePath: '/path/to/my/terrain-rgb-tile.png',
+  outputFilePath: '/path/to/output/16bit.png'
+};
+
+converter.convert(options, function() {
   console.log("Finished.");
 });
 ```
