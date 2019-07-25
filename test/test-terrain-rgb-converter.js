@@ -67,4 +67,18 @@ describe("Terrain-RGB to 16 bit greyscale conversion", function() {
         });
     });
 
+    it("Should calculate pixel slope values properly", function(done) {
+        let inputPath = "./test/input512x512.png";
+        let outputPathSlope = "./test/outputSlope512x512.png";
+        if (fs.existsSync(outputPathSlope)) {
+            fs.unlinkSync(outputPathSlope);
+        }
+        var options = { inputFilePath: inputPath, outputFilePath : outputPathSlope };
+        converter.convertToSlope(options, function() {
+            var fileStats = fs.statSync(outputPathSlope);
+            chai.expect(fileStats.size).to.equal(171778);
+            done();
+        });
+    });
+
 });
