@@ -61,10 +61,6 @@ typings/
 .next
 
 # test data
-test/output256x256.png
-test/output512x512.png
-test/retrievedTile.png
-test/outputScaled512x512.png
-test/outputSlope512x512.png
+test/output*.png
 test/*.xml
 test/*.qgz
