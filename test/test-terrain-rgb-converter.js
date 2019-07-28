@@ -62,7 +62,7 @@ describe("Terrain-RGB to 16 bit greyscale conversion", function() {
         var options = { inputFilePath: inputPath, outputFilePath : outputPathScaled, scaleValues: true };
         converter.convert(options, function() {
             var fileStats = fs.statSync(outputPathScaled);
-            chai.expect(fileStats.size).to.equal(86035);
+            chai.expect(fileStats.size).to.equal(88832);
             done();
         });
     });
@@ -76,7 +76,7 @@ describe("Terrain-RGB to 16 bit greyscale conversion", function() {
         var options = { inputFilePath: inputPath, outputFilePath : outputPathSlope };
         converter.convertToSlope(options, function() {
             var fileStats = fs.statSync(outputPathSlope);
-            chai.expect(fileStats.size).to.equal(171778);
+            chai.expect(fileStats.size).to.equal(60429);
             done();
         });
     });
