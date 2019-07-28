@@ -35,20 +35,15 @@ describe("Terrain-RGB to 16 bit greyscale conversion", function() {
     });
 
     it("Should retrieve a valid 256x256 Terrain-RGB tile from a server", function(done) {
-        
-        //Will fail if you do not have a .env file in the root of your project with an entry: MAPBOX_TOKEN=<your token>. 
-        //Not recommended to track this file in source control.
-        chai.expect(process.env.MAPBOX_TOKEN);
-
         //Whiteface Mountain area, NY
-        let url = "https://api.mapbox.com/v4/mapbox.terrain-rgb/12/1207/1483.pngraw?access_token=" + process.env.MAPBOX_TOKEN;
-        let outputPath = "./test/retrievedTile.png";
+        let url = "https://api.mapbox.com/v4/mapbox.terrain-rgb/12/1207/1483.pngraw?access_token=" + "pk.eyJ1Ijoic2hhbmUwMjIwNzIiLCJhIjoiY2p5aHg0b3YxMDRlODNubWpldmFvYjNuMCJ9.VImPh4Yak9vR2avBEJ2N_Q";
+        let outputPath = "./test/outputGetTile.png";
         if (fs.existsSync(outputPath)) {
             fs.unlinkSync(outputPath);
         }
         converter.getTile(url, outputPath, function() {
             var stats = fs.statSync(outputPath);
-            chai.expect(fs.existsSync(outputPath));
+            chai.expect(stats.size).to.equal(137508);
             done();
         });
     });
@@ -62,7 +57,7 @@ describe("Terrain-RGB to 16 bit greyscale conversion", function() {
         var options = { inputFilePath: inputPath, outputFilePath : outputPathScaled, scaleValues: true };
         converter.convert(options, function() {
             var fileStats = fs.statSync(outputPathScaled);
-            chai.expect(fileStats.size).to.equal(88832);
+            chai.expect(fileStats.size).to.equal(88838);
             done();
         });
     });
@@ -81,4 +76,17 @@ describe("Terrain-RGB to 16 bit greyscale conversion", function() {
         });
     });
 
+    it("Should convert to 32 bit properly", function(done) {
+        let inputPath = "./test/input512x512.png";
+        let outputPath32 = "./test/output32bit.png";
+        if (fs.existsSync(outputPath32)) {
+            fs.unlinkSync(outputPath32);
+        }
+        var options = { inputFilePath: inputPath, outputFilePath : outputPath32 };
+        converter.convert32(options, function() {
+            var fileStats = fs.statSync(outputPath32);
+            chai.expect(fileStats.size).to.equal(43326);
+            done();
+        });
+    });
 });
