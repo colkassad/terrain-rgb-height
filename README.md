@@ -20,7 +20,7 @@ converter.convert(options, function() {
 });
 ```
 
-I started this project because I wanted an easy way to import "real-world" terrain into Unreal Engine 4. To facilitate this, there is an option to scale the 16 bit pixels from 0 to 32767. The console will output a scaling factor that can be applied to the landscape Z scale parameter in the Unreal Editor. The scaling is applied in the same manner as described [here](https://terraformpro.com/tutorials/tutorial-1/exporting-gis-data/). This scaling has not proven to be perfect and you may need to play around with the scaling to get it right. I hope to improve this in the future. Below is an example showing the scaling option.
+I started this project because I wanted a convenient way to obtain "real-world" terrain for import into Unreal Engine 4. To facilitate this, there is an option to scale the 16 bit pixels from 0 to 65535:
 
 ```javascript
 var converter = require('terrain-rgb-converter');
@@ -32,6 +32,21 @@ var options = {
 };
 
 converter.convert(options, function() {
+  console.log("Finished.");
+});
+```
+
+You can also convert a Terrian-RGB tile to a 16 bit PNG depecting slope percentage. This is still in the early stages of development.
+
+```javascript
+var converter = require('terrain-rgb-converter');
+
+var options = {
+  inputFilePath: '/path/to/my/terrain-rgb-tile.png',
+  outputFilePath: '/path/to/output/16bit-slope.png'
+};
+
+converter.convertToSlope(options, function() {
   console.log("Finished.");
 });
 ```
