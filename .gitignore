@@ -61,6 +61,6 @@ typings/
 .next
 
 # test data
-test/output*.png
+test/output*
 test/*.xml
 test/*.qgz
