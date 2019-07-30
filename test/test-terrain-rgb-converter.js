@@ -2,7 +2,7 @@ var chai = require('chai');
 var converter = require('../../terrain-rgb-converter');
 var fs = require('fs');
 
-describe("Terrain-RGB to 16 bit greyscale conversion", function() {
+describe("Terrain-RGB Tests", function() {
     it("Should convert a 256x256 Terrain-RGB PNG to 16 bit", function(done) {
         let inputPath = "./test/input256x256.png";
         let outputPath = "./test/output256x256.png";
@@ -62,20 +62,6 @@ describe("Terrain-RGB to 16 bit greyscale conversion", function() {
         });
     });
 
-    it("Should calculate pixel slope values properly", function(done) {
-        let inputPath = "./test/input512x512.png";
-        let outputPathSlope = "./test/outputSlope512x512.png";
-        if (fs.existsSync(outputPathSlope)) {
-            fs.unlinkSync(outputPathSlope);
-        }
-        var options = { inputFilePath: inputPath, outputFilePath : outputPathSlope };
-        converter.convertToSlope(options, function() {
-            var fileStats = fs.statSync(outputPathSlope);
-            chai.expect(fileStats.size).to.equal(60429);
-            done();
-        });
-    });
-
     it("Should convert to 32 bit properly", function(done) {
         let inputPath = "./test/input512x512.png";
         let outputPath32 = "./test/output32bit.png";
@@ -86,6 +72,15 @@ describe("Terrain-RGB to 16 bit greyscale conversion", function() {
         converter.convert32(options, function() {
             var fileStats = fs.statSync(outputPath32);
             chai.expect(fileStats.size).to.equal(43326);
+            done();
+        });
+    });
+
+    it("Should calculate statistics properly", function(done) {
+        let inputPath = "./test/input512x512.png";
+        converter.calculateStatistics(inputPath, function(stats) {
+            chai.expect(Math.floor(stats.minHeight)).to.equal(946);
+            chai.expect(Math.floor(stats.maxHeight)).to.equal(1233);
             done();
         });
     });
