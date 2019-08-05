@@ -33,10 +33,10 @@ describe("Terrain-RGB Tests", function() {
             done();
         });
     });
-
+/*
     it("Should retrieve a valid 256x256 Terrain-RGB tile from a server", function(done) {
         //Whiteface Mountain area, NY
-        let url = "https://api.mapbox.com/v4/mapbox.terrain-rgb/12/1207/1483.pngraw?access_token=" + "pk.eyJ1Ijoic2hhbmUwMjIwNzIiLCJhIjoiY2p5aHg0b3YxMDRlODNubWpldmFvYjNuMCJ9.VImPh4Yak9vR2avBEJ2N_Q";
+        let url = "https://api.mapbox.com/v4/mapbox.terrain-rgb/12/1207/1483.pngraw?access_token=" + "put key here";
         let outputPath = "./test/outputGetTile.png";
         if (fs.existsSync(outputPath)) {
             fs.unlinkSync(outputPath);
@@ -47,7 +47,7 @@ describe("Terrain-RGB Tests", function() {
             done();
         });
     });
-
+*/
     it("Should scale pixel values properly", function(done) {
         let inputPath = "./test/input512x512.png";
         let outputPathScaled = "./test/outputScaled512x512.png";
@@ -81,19 +81,6 @@ describe("Terrain-RGB Tests", function() {
         converter.calculateStatistics(inputPath, function(stats) {
             chai.expect(Math.floor(stats.minHeight)).to.equal(946);
             chai.expect(Math.floor(stats.maxHeight)).to.equal(1233);
-            done();
-        });
-    });
-
-    it("Should calculate slope properly", function(done) {
-        var options  = {
-            inputFilePath: './test/input512x512.png',
-            outputFilePath: './test/outputSlope512x512.png',
-            cellsize: 5
-        };
-        converter.convertToSlope(options, function() {
-            var fileStats = fs.statSync(options.outputFilePath);
-            chai.expect(fileStats.size).to.equal(93);
             done();
         });
     });
