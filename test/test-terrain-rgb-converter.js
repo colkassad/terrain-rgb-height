@@ -84,4 +84,17 @@ describe("Terrain-RGB Tests", function() {
             done();
         });
     });
+
+    it("Should calculate slope properly", function(done) {
+        var options  = {
+            inputFilePath: './test/input512x512.png',
+            outputFilePath: './test/outputSlope512x512.png',
+            cellsize: 5
+        };
+        converter.convertToSlope(options, function() {
+            var fileStats = fs.statSync(options.outputFilePath);
+            chai.expect(fileStats.size).to.equal(93);
+            done();
+        });
+    });
 });
