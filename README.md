@@ -1,14 +1,14 @@
-# terrain-rgb-converter
-Converts Mapbox's [Terrain-RGB](https://docs.mapbox.com/help/troubleshooting/access-elevation-data/) PNG tiles to 16 bit greyscale PNGs
+# terrain-rgb-height
+Converts Mapbox's [Terrain-RGB](https://docs.mapbox.com/help/troubleshooting/access-elevation-data/) PNG tiles to 16 bit greyscale PNG heightmaps.
 
 # Installation
 
-`npm install terrain-rgb-converter`
+`npm install terrain-rgb-height`
 
 
 # Examples
 ```javascript
-var converter = require('terrain-rgb-converter');
+var converter = require('terrain-rgb-height');
 
 var options = {
   inputFilePath: '/path/to/my/terrain-rgb-tile.png',
@@ -23,7 +23,7 @@ converter.convert(options, function() {
 There is an option to scale the 16 bit pixels from 0 to 65535:
 
 ```javascript
-var converter = require('terrain-rgb-converter');
+var converter = require('terrain-rgb-height');
 
 var options = {
   inputFilePath: '/path/to/my/terrain-rgb-tile.png',
