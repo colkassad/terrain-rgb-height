@@ -1,5 +1,5 @@
 var chai = require('chai');
-var converter = require('../../terrain-rgb-converter');
+var converter = require('../lib/TerrainRgbHeight');
 var fs = require('fs');
 
 describe("Terrain-RGB Tests", function() {

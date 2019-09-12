@@ -1,8 +1,8 @@
 {
-  "name": "terrain-rgb-converter",
-  "version": "0.0.11",
-  "description": "Converts Mapbox's Terrain-RGB PNG tiles to 16 bit greyscale PNGs",
-  "main": "./lib/TerrainRgbConverter.js",
+  "name": "terrain-rgb-height",
+  "version": "0.0.1",
+  "description": "Converts Mapbox's Terrain-RGB PNG tiles to 16 bit greyscale PNG heightmaps.",
+  "main": "./lib/TerrainRgbHeight.js",
   "directories": {
     "lib": "lib"
   },
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/colkassad/terrain-rgb-converter.git"
+    "url": "git+https://github.com/colkassad/terrain-rgb-height.git"
   },
   "keywords": [
     "terrain-rgb"
@@ -19,9 +19,9 @@
   "author": "Shane Brennan",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/colkassad/terrain-rgb-converter/issues"
+    "url": "https://github.com/colkassad/terrain-rgb-height/issues"
   },
-  "homepage": "https://github.com/colkassad/terrain-rgb-converter#readme",
+  "homepage": "https://github.com/colkassad/terrain-rgb-height#readme",
   "dependencies": {
     "pngjs": "^3.4.0",
     "request": "^2.88.0"
