@@ -1,6 +1,6 @@
 {
   "name": "terrain-rgb-height",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Converts Mapbox's Terrain-RGB PNG tiles to 16 bit greyscale PNG heightmaps.",
   "main": "./lib/TerrainRgbHeight.js",
   "directories": {
