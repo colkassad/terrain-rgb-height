@@ -1,5 +1,5 @@
 # terrain-rgb-height
-Converts Mapbox's [Terrain-RGB](https://docs.mapbox.com/help/troubleshooting/access-elevation-data/) PNG tiles to 16 bit greyscale PNG heightmaps. [See here](http://www.redshifted.org/) for an online demo and [here](https://imgur.com/a/ENsZXHN) for an example use case of importing 16 bit PNGs into Unreal Engine 4.
+Converts Mapbox's [Terrain-RGB](https://docs.mapbox.com/help/troubleshooting/access-elevation-data/) PNG tiles to 16 bit greyscale PNG heightmaps. See [my demo map repository](https://github.com/colkassad/terrain-rgb-demo-map) for an example implementation.
 
 # Installation
 
