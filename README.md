@@ -1,5 +1,5 @@
 # terrain-rgb-height
-Converts Mapbox's [Terrain-RGB](https://docs.mapbox.com/help/troubleshooting/access-elevation-data/) PNG tiles to 16 bit greyscale PNG heightmaps. See [my demo map repository](https://github.com/colkassad/terrain-rgb-demo-map) for an example implementation.
+Converts Mapbox's [Terrain-RGB](https://docs.mapbox.com/help/troubleshooting/access-elevation-data/) PNG tiles to 16 bit greyscale PNG heightmaps (great for game engines!). See [my demo map repository](https://github.com/colkassad/terrain-rgb-demo-map) for an example implementation.
 
 # Installation
 
